@@ -1,0 +1,12 @@
+{
+	"BaseDir" : "__PREFIX__",
+	"PidFile" : "var/weibo_socketd.pid",
+	"Daemon" : true,
+	"L7_Configs" : [
+		"conf/l7_nginx_phpfpm.conf",
+		"conf/l7_apache.conf"
+	],
+	"MonitorAdminIp": "1.1.1.1",
+	"MonitorPort" : 8003
+}
+

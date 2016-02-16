@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book xmlns='http://docbook.org/ns/docbook' version="5.0" xml:lang="zh_CN">
+	<title>libweibosocket开发文档</title>
+	<titleabbrev>weibosocket客户端API使用手册</titleabbrev>
+
+	<info>
+		<revhistory>
+			<revision>
+				<revnumber>0.1</revnumber>
+				<date>2015-08-06</date>
+				<authorinitials>牛海青</authorinitials>
+				<revremark>建立Docbook5文档初始框架。</revremark>
+			</revision>
+		</revhistory>
+
+		<legalnotice><para>本文件为微博内部文档，不得外泄。</para></legalnotice>
+
+		<authorgroup>
+			<author>
+				<personname>
+					<firstname>韦</firstname><surname>昌佗</surname>
+				</personname>
+				<affiliation><orgname>微博/平台与大数据/基础架构</orgname></affiliation>
+				<address><email>changtuo@staff.weibo.com</email></address>
+			</author>
+			<author>
+				<personname>
+					<firstname>牛</firstname><surname>海青</surname>
+				</personname>
+				<affiliation><orgname>微博/平台与大数据/基础架构</orgname></affiliation>
+				<address><email>haiqing1@staff.weibo.com</email></address>
+			</author>
+		</authorgroup>
+	</info>
+
+	<dedication>
+		<para>
+			This book is dedicated to you.
+		</para>
+	</dedication>
+
+	<preface>
+		<title>前言</title>
+		<para>
+			本软件是微博7层协议的客户端底层运行时库。
+		</para>
+	</preface>
+
+	<toc></toc>
+
+	<chapter>
+		<title>简介</title>
+		<para>
+			（这个库的简介）
+		</para>
+	</chapter>
+
+	<chapter>
+		<title>设计</title>
+		<para>
+			（这个库的设计概要）
+		</para>
+	</chapter>
+
+	<chapter>
+		<title>API说明</title>
+		<para>
+			（这个库的接口函数参考）
+		</para>
+
+		<sect1>
+			<title>context维护</title>
+			<para>
+				Context是.......，类型是<type>wsocket_context_t</type>，类型定义是：
+			</para>
+			<programlisting>
+				struct wsocket_stat_st {
+					enum wsocket_states state;
+					int64_t send_bytes, recv_bytes;
+					time_t start_time,end_time;
+				};
+			</programlisting>
+			<sect2>
+				<title>创建context</title>
+				<code language='C'>wsocket_context_t *wsocket_context_new(void);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>销毁context</title>
+				<code language='C'>void wsocket_context_delete(wsocket_context_t*);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>设置context的hashkey</title>
+				<code language='C'>int wsocket_context_set_hashkey(wsocket_context_t*,  const void *hashkey, size_t hashkey_len);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>设置context的传输参数</title>
+				<code language='C'>int wsocket_context_set_flag(wsocket_context_t*, int local, int peer);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>设置context的接收超时</title>
+				<code language='C'>int wsocket_context_set_recv_timeout(wsocket_context_t*, int timeout);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>设置context的回调函数</title>
+				<code language='C'>int wsocket_context_set_callback(wsocket_context_t*, callback_t*);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>设置context的初始发送数据</title>
+				<code language='C'>int wsocket_context_set_data(wsocket_context_t*, const void*, size_t);</code>
+				<para>解释</para>
+			</sect2>
+		</sect1>
+
+		<sect1>
+			<title>context执行</title>
+			<para>
+				解释	
+			</para>
+			<sect2>
+				<title>运行一个context</title>
+				<code language='C'>int wsocket_run(wsocket_context_t*);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>向context发送数据</title>
+				<code language='C'>int wsocket_send(wsocket_context_t*, const void*, size_t);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>终止context执行</title>
+				<code language='C'>int wsocket_cancel(wsocket_context_t*);</code>
+				<para>解释</para>
+			</sect2>
+			<sect2>
+				<title>获取context运行状况</title>
+				<code language='C'>struct wsocket_stat_st *wsocket_stat(wsocket_context_t*, struct wsocket_stat_st*);</code>
+				<para>解释</para>
+			</sect2>
+		</sect1>
+
+	</chapter>
+
+	<chapter>
+		<title>编译和安装</title>
+		<para>
+			（这个库的简介）
+		</para>
+	</chapter>
+
+	<chapter>
+		<title>范例</title>
+		<sect1>
+			<title>一个极简的范例</title>
+			<para>
+				（范例）
+			</para>
+		</sect1>
+		<sect1>
+			<title>一个相对完整的的范例</title>
+			<para>
+				（范例）
+			</para>
+		</sect1>
+	</chapter>
+
+	<appendix>
+		<title>附录</title>
+		<para>
+			(如果需要的话)
+		</para>
+	</appendix>
+</book>
+

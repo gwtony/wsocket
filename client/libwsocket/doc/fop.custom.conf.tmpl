@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+	<base>.</base>
+	<renderers>
+		<renderer mime="application/pdf">
+			<filterList>
+				<value>flate</value>
+			</filterList>
+			<fonts>
+				<font metrics-url="file://__PWD__/fallback.xml" kerning="yes" embed-url="file://__FB_TTF__">
+					<font-triplet name="Fallback" style="normal" weight="normal" />
+					<font-triplet name="Fallback" style="normal" weight="bold" />
+					<font-triplet name="Fallback" style="italic" weight="normal" />
+					<font-triplet name="Fallback" style="italic" weight="bold" />
+				</font>
+				<font metrics-url="file://__PWD__/fallback_mono.xml" kerning="yes" embed-url="file://__FB_TTF__">
+					<font-triplet name="FallbackMono" style="normal" weight="normal" />
+					<font-triplet name="FallbackMono" style="normal" weight="bold" />
+					<font-triplet name="FallbackMono" style="italic" weight="normal" />
+					<font-triplet name="FallbackMono" style="italic" weight="bold" />
+				</font>
+			</fonts>
+		</renderer>
+	</renderers>
+</fop>
+

@@ -1,0 +1,35 @@
+{
+	"Name" : "l7_nginx_phpfpm",
+	"ListenAddr" : "0.0.0.0",
+	"ListenPort" : 8001,
+	"RecvTimeout_ms" : 3000,
+	"SendTimeout_ms" : -1,
+
+	"NrThreads" : 4,
+	"FdMax" : 102400,
+	"ConcurrentMax" : 32768,
+
+	"Server_key" : "conf/server.key",
+	"Server_crt" : "conf/server.crt",
+	"CA_crt" : "conf/ca.crt",
+
+	"LogFile" : "l7_nginx_phpfpm.log",
+	"LogLevel" : 6,
+
+	"Upstream" : [
+		{	"Address" : "10.0.0.1",
+			"Port" : "8001",
+			"Weight" : 1,
+			"ConnectTimeout_ms" : 2000,
+			"MaxRecvTimeout_ms" : 3000,
+			"SendTimeout_ms" : -1	},
+
+		{	"Address" : "10.0.0.2",
+			"Port" : "8001",
+			"Weight" : 1,
+			"ConnectTimeout_ms" : 2000,
+			"MaxRecvTimeout_ms" : 3000,
+			"SendTimeout_ms" : -1	}
+	]
+}
+

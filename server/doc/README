@@ -1,0 +1,5 @@
+
+[Monitor Usage]
+1. list: list, show all l7server names
+2. reload: reload l7server_name, server will reload matches l7server
+
